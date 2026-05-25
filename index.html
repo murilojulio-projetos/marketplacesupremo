@@ -101,6 +101,14 @@
     .tagline::before{counter-increment:t;content:"0" counter(t);font-family:var(--mono);font-size:.8rem;color:var(--lime);}
     .tagline b{font-weight:800;font-size:clamp(1.3rem,3vw,1.9rem);letter-spacing:-.02em;}
     .tagline.star b{color:var(--lime);}
+    .tagline.star::after{content:"SLOGAN OFICIAL";margin-left:auto;font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;color:var(--lime-ink);background:var(--lime);padding:5px 9px;border-radius:6px;font-weight:600;}
+
+    /* SLOGAN OFICIAL */
+    .slogan{padding:66px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:linear-gradient(160deg,rgba(255,209,26,.06),transparent 65%);}
+    .slogan__k{font-family:var(--mono);font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;color:var(--lime);}
+    .slogan__big{font-weight:800;font-size:clamp(2.6rem,7vw,5rem);letter-spacing:-.03em;line-height:1;margin-top:18px;}
+    .slogan__big b{color:var(--lime);}
+    .slogan__cap{color:var(--muted);font-size:1.02rem;margin-top:22px;max-width:56ch;}
 
     /* LOGO + COR + TIPO + APPS */
     .panel{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--card);margin-top:8px;}
@@ -158,6 +166,15 @@
       <div class="foot"><span>Dark Mode · Amarelo Loctos</span><span>Bricolage Grotesque</span><span>Tech · B2B · Marketplace</span></div>
     </div>
   </div>
+
+  <!-- SLOGAN OFICIAL -->
+  <section class="slogan">
+    <div class="wrap">
+      <span class="slogan__k">Slogan oficial</span>
+      <p class="slogan__big">Sua obra <b>não para</b>.</p>
+      <p class="slogan__cap">A assinatura da marca. Fala direto com a construtora e fecha anúncios, capas e peças — sempre com ponto final.</p>
+    </div>
+  </section>
 
   <!-- DNA -->
   <section id="dna">
@@ -234,7 +251,8 @@
     <div class="wrap">
       <div class="shead"><span class="n">05</span><h2>Taglines</h2></div>
       <div class="tags">
-        <div class="tagline star"><b>A infraestrutura da locação.</b></div>
+        <div class="tagline star"><b>Sua obra não para.</b></div>
+        <div class="tagline"><b>A infraestrutura da locação.</b></div>
         <div class="tagline"><b>O ativo certo, na obra certa. Em segundos.</b></div>
         <div class="tagline"><b>Locação na velocidade do dado.</b></div>
         <div class="tagline"><b>Nada fica parado.</b></div>
