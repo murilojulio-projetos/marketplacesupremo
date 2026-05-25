@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loctos · Brandbook</title>
+  <meta name="theme-color" content="#0a0a0f" />
+  <link rel="icon" href="loctos-favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --bg:#0a0a0f; --bg-2:#0f0f15; --card:#121219; --line:rgba(255,255,255,.09); --line-2:rgba(255,255,255,.05);
+      --fg:#f4f4f7; --muted:#7e7e8c;
+      --lime:#ffd11a; --lime-ink:#0a0a0f;
+      --disp:"Bricolage Grotesque",system-ui,sans-serif; --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+      --maxw:1060px;
+    }
+    *,*::before,*::after{box-sizing:border-box;} *{margin:0;}
+    html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+    body{font-family:var(--disp);background:var(--bg);color:var(--fg);line-height:1.55;-webkit-font-smoothing:antialiased;}
+    svg{display:block;} img{display:block;max-width:100%;} a{color:inherit;text-decoration:none;}
+    ::selection{background:var(--lime);color:var(--lime-ink);}
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+    .mark{display:inline-block;color:var(--lime);} .mark svg{width:100%;height:100%;fill:currentColor;}
+
+    /* NAV */
+    .nav{position:sticky;top:0;z-index:50;background:rgba(10,10,15,.8);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);}
+    .nav__row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0;}
+    .nav .b{display:flex;align-items:center;gap:10px;} .nav .b .mark,.nav .b .mark svg{height:22px;width:auto;}
+    .nav .b strong{font-weight:800;font-size:1.15rem;letter-spacing:-.01em;}
+    .nav .links{display:flex;gap:18px;font-family:var(--mono);font-size:.64rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);}
+    .nav .links a:hover{color:var(--lime);}
+    @media(max-width:880px){.nav .links{display:none;}}
+
+    /* COVER */
+    .cover{position:relative;overflow:hidden;border-bottom:1px solid var(--line);min-height:88vh;display:flex;align-items:center;}
+    .cover::before{content:"";position:absolute;width:1px;height:140%;left:50%;top:-20%;background:linear-gradient(var(--lime),transparent);opacity:.25;}
+    .cover::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 50% at 75% 30%,rgba(255,209,26,.10),transparent 70%);pointer-events:none;}
+    .cover__in{position:relative;padding:60px 0;width:100%;}
+    .cover .top{display:flex;align-items:center;gap:16px;margin-bottom:54px;}
+    .cover .top .mark,.cover .top .mark svg{height:40px;width:auto;}
+    .cover .top .nm{font-weight:800;font-size:1.9rem;letter-spacing:-.02em;}
+    .cover .kick{font-family:var(--mono);font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--lime);margin-bottom:24px;}
+    .cover h1{font-weight:800;font-size:clamp(2.8rem,8.5vw,6rem);line-height:.96;letter-spacing:-.035em;}
+    .cover h1 b{color:var(--lime);}
+    .cover .sub{font-size:1.25rem;color:var(--muted);margin-top:26px;max-width:50ch;}
+    .cover .foot{position:absolute;bottom:24px;left:0;right:0;display:flex;justify-content:space-between;font-family:var(--mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);}
+
+    section{padding:96px 0;border-bottom:1px solid var(--line);}
+    .shead{display:flex;align-items:baseline;gap:16px;margin-bottom:34px;}
+    .shead .n{font-family:var(--mono);font-size:.8rem;color:var(--lime);font-weight:600;}
+    .shead h2{font-weight:800;font-size:clamp(1.7rem,4.2vw,2.6rem);line-height:1.02;letter-spacing:-.025em;}
+    .intro{color:var(--muted);font-size:1.08rem;max-width:62ch;margin:-18px 0 0;}
+
+    /* DNA */
+    .dna{display:grid;gap:16px;margin-top:8px;}
+    .dna__row{display:grid;grid-template-columns:200px 1fr;gap:24px;border:1px solid var(--line);border-radius:18px;background:var(--card);padding:30px;}
+    .dna__row .k{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--lime);}
+    .dna__row .k small{display:block;color:var(--muted);margin-top:6px;letter-spacing:.04em;font-size:.66rem;}
+    .dna__row .v{font-weight:700;font-size:1.45rem;line-height:1.2;letter-spacing:-.01em;}
+    .dna__row .v.bhag{font-size:1.7rem;} .dna__row .v.bhag b{color:var(--lime);}
+    .vals{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:8px;}
+    .val{border:1px solid var(--line);border-radius:16px;background:var(--card);padding:24px;}
+    .val .vn{font-family:var(--mono);font-size:.7rem;color:var(--lime);margin-bottom:10px;}
+    .val b{font-weight:700;font-size:1.15rem;display:block;margin-bottom:6px;} .val p{color:var(--muted);font-size:.92rem;}
+
+    /* ARQUETIPO */
+    .arch{display:grid;grid-template-columns:1.1fr 1fr;gap:18px;margin-top:8px;}
+    .arch__main{border:1px solid var(--lime);border-radius:18px;background:linear-gradient(150deg,rgba(255,209,26,.06),transparent);padding:32px;}
+    .arch__main .tag{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--lime);margin-bottom:14px;}
+    .arch__main h3{font-weight:800;font-size:2rem;letter-spacing:-.02em;margin-bottom:14px;}
+    .arch__main h3 b{color:var(--lime);}
+    .arch__main p{color:var(--muted);font-size:.98rem;}
+    .arch__pers{border:1px solid var(--line);border-radius:18px;background:var(--card);padding:32px;}
+    .arch__pers .tag{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;}
+    .arch__pers li{padding:8px 0;color:var(--fg);font-size:.96rem;display:flex;gap:10px;border-bottom:1px solid var(--line-2);} .arch__pers li:last-child{border:0;}
+    .arch__pers li::before{content:"—";color:var(--lime);}
+
+    /* TOM DE VOZ */
+    .voz{border:1px solid var(--line);border-radius:18px;overflow:hidden;margin-top:8px;}
+    .voz__row{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);}
+    .voz__row:first-child{border-top:0;}
+    .voz__c{padding:18px 24px;display:flex;align-items:center;gap:12px;font-size:1.05rem;font-weight:600;}
+    .voz__c.is{background:rgba(255,209,26,.04);} .voz__c.is::before{content:"✓";color:var(--lime);font-weight:800;}
+    .voz__c.no{color:var(--muted);border-left:1px solid var(--line);} .voz__c.no::before{content:"✕";color:#ff6a4d;font-weight:800;}
+    .voz__head{display:grid;grid-template-columns:1fr 1fr;font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);}
+    .voz__head div{padding:14px 24px;} .voz__head .h2c{border-left:1px solid var(--line);}
+
+    /* MANIFESTO */
+    .manifesto{border:1px solid var(--line);border-radius:20px;background:linear-gradient(160deg,rgba(255,209,26,.05),transparent 60%);padding:48px;margin-top:8px;}
+    .manifesto p{font-size:clamp(1.15rem,2.2vw,1.5rem);line-height:1.45;letter-spacing:-.01em;}
+    .manifesto p+p{margin-top:22px;}
+    .manifesto b{color:var(--lime);font-weight:700;}
+
+    /* TAGLINES */
+    .tags{display:grid;gap:12px;margin-top:8px;counter-reset:t;}
+    .tagline{border:1px solid var(--line);border-radius:14px;background:var(--card);padding:24px 28px;display:flex;align-items:center;gap:20px;transition:border-color .15s,background .15s;}
+    .tagline:hover{border-color:var(--lime);background:rgba(255,209,26,.03);}
+    .tagline::before{counter-increment:t;content:"0" counter(t);font-family:var(--mono);font-size:.8rem;color:var(--lime);}
+    .tagline b{font-weight:800;font-size:clamp(1.3rem,3vw,1.9rem);letter-spacing:-.02em;}
+    .tagline.star b{color:var(--lime);}
+
+    /* LOGO + COR + TIPO + APPS */
+    .panel{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--card);margin-top:8px;}
+    .panel__stage{padding:56px;display:grid;place-items:center;background:#0c0c12;}
+    .panel__lock{display:flex;align-items:center;gap:18px;} .panel__lock .mark,.panel__lock .mark svg{height:50px;width:auto;} .panel__lock .nm{font-weight:800;font-size:2.7rem;letter-spacing:-.02em;}
+    .panel__cap{border-top:1px solid var(--line);padding:13px 18px;font-family:var(--mono);font-size:.66rem;color:var(--muted);}
+    .vgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:14px;}
+    .vc{border:1px solid var(--line);border-radius:14px;overflow:hidden;} .vc .s{height:120px;display:grid;place-items:center;padding:20px;} .vc .s .mark,.vc .s .mark svg{height:44px;width:auto;}
+    .vc .s.dark{background:#0c0c12;} .vc .s.lime{background:var(--lime);} .vc .s.light{background:var(--fg);}
+    .vc .c{border-top:1px solid var(--line);padding:9px 12px;font-family:var(--mono);font-size:.6rem;color:var(--muted);text-align:center;}
+
+    .pal{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:8px;}
+    .sw{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--card);} .sw .chip{height:88px;} .sw .info{padding:12px 14px;}
+    .sw .info b{display:block;font-weight:700;font-size:.88rem;} .sw .info .hex{font-family:var(--mono);font-size:.64rem;color:var(--muted);margin-top:3px;} .sw .info .use{font-family:var(--mono);font-size:.56rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-top:6px;}
+    .palrow{font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:22px 0 10px;}
+
+    .typ{display:grid;gap:14px;margin-top:8px;}
+    .tr{border:1px solid var(--line);border-radius:14px;background:var(--card);padding:24px;display:grid;grid-template-columns:160px 1fr;gap:24px;align-items:center;}
+    .tr .lab{font-family:var(--mono);font-size:.64rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;} .tr .lab b{display:block;font-family:var(--disp);color:var(--fg);font-size:1rem;font-weight:700;margin-bottom:4px;text-transform:none;letter-spacing:0;}
+    .s-d{font-weight:800;font-size:2.1rem;letter-spacing:-.025em;line-height:1;} .s-h{font-weight:700;font-size:1.45rem;} .s-b{font-weight:400;font-size:1rem;} .s-m{font-family:var(--mono);font-size:.92rem;color:var(--lime);}
+
+    .apps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px;}
+    .app{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--card);} .app .st{height:160px;display:grid;place-items:center;background:#0c0c12;} .app .cap{border-top:1px solid var(--line);padding:10px 14px;font-family:var(--mono);font-size:.62rem;color:var(--muted);text-align:center;}
+    .appicon{width:92px;height:92px;border-radius:22px;background:#0c0c12;border:1px solid var(--line);display:grid;place-items:center;} .appicon .mark,.appicon .mark svg{width:54%;height:54%;}
+    .avatar{width:92px;height:92px;border-radius:50%;background:var(--lime);display:grid;place-items:center;overflow:hidden;} .avatar .mark{width:46px;height:46px;color:var(--lime-ink);} .avatar .mark svg{width:100%;height:100%;}
+    .favs{display:flex;gap:12px;align-items:flex-end;} .favs .fi{background:#0c0c12;border:1px solid var(--line);border-radius:8px;display:grid;place-items:center;} .favs .fi .mark,.favs .fi .mark svg{width:56%;height:56%;}
+    .favs .f1{width:28px;height:28px;border-radius:6px;} .favs .f2{width:44px;height:44px;} .favs .f3{width:64px;height:64px;border-radius:14px;}
+
+    footer{padding:70px 0;text-align:center;} footer .mark{margin:0 auto 16px;} footer .mark,footer .mark svg{height:30px;width:auto;} footer p{font-family:var(--mono);font-size:.7rem;color:var(--muted);letter-spacing:.08em;}
+
+    @media (max-width:880px){ .dna__row{grid-template-columns:1fr;gap:12px;} .vals,.arch,.vgrid,.pal,.apps{grid-template-columns:1fr;} .vgrid,.pal{grid-template-columns:repeat(2,1fr);} .tr{grid-template-columns:1fr;gap:12px;} .manifesto{padding:30px;} }
+  </style>
+</head>
+<body>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><g id="m">
+    <path d="M34.624 1.69309C39.4193 0.660834 43.5615 4.49891 43.5615 9.40403V109.859H27.3369C24.061 109.859 22.0135 113.406 23.6514 116.243L49.4521 160.931C51.0904 163.768 55.1861 163.769 56.8242 160.931L68.4961 140.715H115.913C120.614 140.715 124.426 144.525 124.426 149.226V193.915C124.426 198.616 120.635 202.487 115.935 202.563C100.57 202.811 69.3409 203.239 63.2451 202.426C55.2636 201.363 43.5621 200.298 36.1143 197.638C28.6664 194.978 23.3456 191.786 18.5576 188.062C13.7692 184.338 1.00102 173.9 1.00098 152.951C1.00102 132.001 1.00098 40.6989 1.00098 33.2507C1.00098 25.8028 6.32314 16.227 16.9629 8.77903C22.4075 4.96779 29.2451 2.85102 34.624 1.69309Z"/>
+    <path d="M152.513 202.537C147.718 203.569 143.575 199.731 143.575 194.826V94.3716H159.801C163.077 94.3716 165.124 90.8242 163.486 87.9869L137.686 43.2994C136.047 40.4621 131.953 40.462 130.314 43.2994L118.643 63.5152H71.2236C66.5226 63.5152 62.711 59.7035 62.7109 55.0025V10.315C62.7109 5.61408 66.5019 1.74262 71.2021 1.66655C86.5669 1.41864 117.796 0.990656 123.892 1.80327C131.873 2.86723 143.575 3.93148 151.022 6.59135C158.47 9.25132 163.791 12.4426 168.579 16.1665C173.367 19.8907 186.136 30.3298 186.136 51.2789C186.136 72.2287 186.136 163.531 186.136 170.979C186.136 178.427 180.814 188.003 170.174 195.451C164.729 199.262 157.892 201.379 152.513 202.537Z"/>
+  </g></defs></svg>
+
+  <nav class="nav">
+    <div class="wrap nav__row">
+      <div class="b"><span class="mark"><svg viewBox="0 0 188 204"><use href="#m"/></svg></span><strong>Loctos</strong></div>
+      <div class="links"><a href="#dna">DNA</a><a href="#arq">Arquétipo</a><a href="#voz">Voz</a><a href="#man">Manifesto</a><a href="#tag">Taglines</a><a href="#logo">Logo</a></div>
+    </div>
+  </nav>
+
+  <!-- COVER -->
+  <div class="cover">
+    <div class="wrap cover__in">
+      <div class="top"><span class="mark"><svg viewBox="0 0 188 204"><use href="#m"/></svg></span><span class="nm">Loctos</span></div>
+      <div class="kick">Brandbook · v1 · 2026</div>
+      <h1>A <b>infraestrutura</b><br>da locação.</h1>
+      <p class="sub">A malha de dados que faz o equipamento parado encontrar a obra que precisa dele — em segundos. Nada fica parado.</p>
+      <div class="foot"><span>Dark Mode · Amarelo Loctos</span><span>Bricolage Grotesque</span><span>Tech · B2B · Marketplace</span></div>
+    </div>
+  </div>
+
+  <!-- DNA -->
+  <section id="dna">
+    <div class="wrap">
+      <div class="shead"><span class="n">01</span><h2>O DNA da marca</h2></div>
+      <div class="dna">
+        <div class="dna__row"><div class="k">Missão<small>o agora</small></div><div class="v">Matar a fricção da locação: conectar, em tempo real, quem precisa de um equipamento a quem tem ele parado.</div></div>
+        <div class="dna__row"><div class="k">Visão / BHAG<small>o norte</small></div><div class="v bhag">Ser a <b>maior locadora do Brasil</b> sem ser dona de um único equipamento — a malha por onde passa toda a locação do país.</div></div>
+      </div>
+      <h3 class="palrow">Valores · inegociáveis</h3>
+      <div class="vals">
+        <div class="val"><div class="vn">01</div><b>Engenharia acima de opinião</b><p>Decide-se por dado e por produto que resolve — não por achismo nem promessa.</p></div>
+        <div class="val"><div class="vn">02</div><b>Fricção é bug</b><p>Cada clique, espera e planilha é um defeito a ser eliminado. Velocidade é religião.</p></div>
+        <div class="val"><div class="vn">03</div><b>Trilho, não pedágio</b><p>Não ficamos no meio cobrando pra existir — somos a infraestrutura. Construído pra escalar.</p></div>
+        <div class="val"><div class="vn">04</div><b>Ambição com lastro</b><p>Vendemos duro porque o produto entrega. Agressividade sustentada por engenharia.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARQUETIPO -->
+  <section id="arq">
+    <div class="wrap">
+      <div class="shead"><span class="n">02</span><h2>Arquétipo & personalidade</h2></div>
+      <div class="arch">
+        <div class="arch__main">
+          <div class="tag">arquétipo</div>
+          <h3>O <b>Criador</b>, que governa como <b>Soberano</b>.</h3>
+          <p>A Loctos não vende sonho nem aventura — <b style="color:var(--fg)">constrói a estrutura</b> que vira o padrão do mercado inteiro. Cria os trilhos invisíveis da locação e, ao fazê-lo, dita a regra da categoria. Poder por competência, não por barulho.</p>
+        </div>
+        <div class="arch__pers">
+          <div class="tag">personalidade</div>
+          <ul>
+            <li>Engenheiro, não vendedor.</li>
+            <li>Preciso e confiante — o produto fala.</li>
+            <li>Minimalista: remove, não adiciona.</li>
+            <li>Impaciente com o "sempre foi assim".</li>
+            <li>Premium por substância, nunca por verniz.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VOZ -->
+  <section id="voz">
+    <div class="wrap">
+      <div class="shead"><span class="n">03</span><h2>Tom de voz</h2></div>
+      <p class="intro">Falamos com construtora e engenheiro de igual pra igual: autoridade técnica, parceria, precisão. Dado vence adjetivo. Mostramos, não prometemos.</p>
+      <div class="voz" style="margin-top:30px">
+        <div class="voz__head"><div>Somos</div><div class="h2c">Não somos</div></div>
+        <div class="voz__row"><div class="voz__c is">Diretos</div><div class="voz__c no">Arrogantes</div></div>
+        <div class="voz__row"><div class="voz__c is">Técnicos</div><div class="voz__c no">Herméticos</div></div>
+        <div class="voz__row"><div class="voz__c is">Confiantes</div><div class="voz__c no">Fanfarrões</div></div>
+        <div class="voz__row"><div class="voz__c is">Minimalistas</div><div class="voz__c no">Frios / robóticos</div></div>
+        <div class="voz__row"><div class="voz__c is">Foco em ROI e eficiência</div><div class="voz__c no">"Soluções disruptivas e inovadoras"</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MANIFESTO -->
+  <section id="man">
+    <div class="wrap">
+      <div class="shead"><span class="n">04</span><h2>Manifesto</h2></div>
+      <div class="manifesto">
+        <p>Existe uma fortuna parada. Pátios lotados de equipamento ocioso enquanto, a três quarteirões, uma obra trava por falta dele. A locação ainda roda no telefone, na planilha e no "depois eu te falo" — uma das maiores ineficiências da construção, intacta há décadas porque ninguém teve a engenharia pra atacá-la.</p>
+        <p>A Loctos acaba com isso. Somos a malha de dados que liga a demanda da obra direto ao ativo de quem o tem parado — sem ligação, sem intermediário, sem espera. O que levava dias acontece em segundos. Não somos mais um app no meio do caminho. <b>Somos o trilho por onde a locação passa.</b></p>
+        <p>Estamos construindo a infraestrutura invisível sobre a qual toda locação vai rodar. Não viemos disputar esse mercado — <b>viemos virar a fundação dele.</b> Se existe um ativo parado no mundo, o destino dele é a Loctos.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAGLINES -->
+  <section id="tag">
+    <div class="wrap">
+      <div class="shead"><span class="n">05</span><h2>Taglines</h2></div>
+      <div class="tags">
+        <div class="tagline star"><b>A infraestrutura da locação.</b></div>
+        <div class="tagline"><b>O ativo certo, na obra certa. Em segundos.</b></div>
+        <div class="tagline"><b>Locação na velocidade do dado.</b></div>
+        <div class="tagline"><b>Nada fica parado.</b></div>
+        <div class="tagline"><b>Toda locação roda aqui.</b></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOGO -->
+  <section id="logo">
+    <div class="wrap">
+      <div class="shead"><span class="n">06</span><h2>Logo</h2></div>
+      <div class="panel">
+        <div class="panel__stage"><div class="panel__lock"><span class="mark"><svg viewBox="0 0 188 204"><use href="#m"/></svg></span><span class="nm">Loctos</span></div></div>
+        <div class="panel__cap">Logo principal · ícone + wordmark · amarelo sobre dark</div>
+      </div>
+      <div class="vgrid">
+        <div class="vc"><div class="s dark"><span class="mark"><svg viewBox="0 0 188 204"><use href="#m"/></svg></span></div><div class="c">amarelo / dark (principal)</div></div>
+        <div class="vc"><div class="s lime"><span class="mark" style="color:var(--lime-ink)"><svg viewBox="0 0 188 204"><use href="#m"/></svg></span></div><div class="c">dark / lime</div></div>
+        <div class="vc"><div class="s light"><span class="mark" style="color:var(--bg)"><svg viewBox="0 0 188 204"><use href="#m"/></svg></span></div><div class="c">dark / claro</div></div>
+        <div class="vc"><div class="s dark"><span class="mark" style="color:var(--fg)"><svg viewBox="0 0 188 204"><use href="#m"/></svg></span></div><div class="c">mono / branco</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COR -->
+  <section>
+    <div class="wrap">
+      <div class="shead"><span class="n">07</span><h2>Cor</h2></div>
+      <p class="intro">Dark mode como base. <b style="color:var(--lime)">Amarelo Loctos</b> em altíssimo contraste, usado com disciplina — pop porque é raro. Sem segunda cor.</p>
+      <div class="palrow" style="margin-top:26px">cor da marca</div>
+      <div class="pal">
+        <div class="sw"><div class="chip" style="background:#ffd11a"></div><div class="info"><b>Amarelo Loctos</b><div class="hex">#FFD11A</div><div class="use">accent · ação</div></div></div>
+        <div class="sw"><div class="chip" style="background:#0a0a0f;box-shadow:inset 0 0 0 1px var(--line)"></div><div class="info"><b>Void</b><div class="hex">#0A0A0F</div><div class="use">fundo</div></div></div>
+        <div class="sw"><div class="chip" style="background:#121219"></div><div class="info"><b>Card</b><div class="hex">#121219</div><div class="use">superfícies</div></div></div>
+        <div class="sw"><div class="chip" style="background:#f4f4f7"></div><div class="info"><b>Texto</b><div class="hex">#F4F4F7</div><div class="use">leitura</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIPOGRAFIA -->
+  <section>
+    <div class="wrap">
+      <div class="shead"><span class="n">08</span><h2>Tipografia</h2></div>
+      <div class="typ">
+        <div class="tr"><div class="lab"><b>Bricolage Grotesque</b>Display · 800</div><div class="s-d">A infraestrutura da locação</div></div>
+        <div class="tr"><div class="lab"><b>Bricolage Grotesque</b>Heading · 700</div><div class="s-h">O ativo certo, na obra certa</div></div>
+        <div class="tr"><div class="lab"><b>Bricolage Grotesque</b>Texto · 400</div><div class="s-b">A malha conecta a demanda da obra direto ao ativo parado. O que levava dias acontece em segundos.</div></div>
+        <div class="tr"><div class="lab"><b>JetBrains Mono</b>Dados · técnica</div><div class="s-m">UPTIME 99.98% · LATÊNCIA 0.3s · −28% CUSTO</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APLICAÇÕES -->
+  <section>
+    <div class="wrap">
+      <div class="shead"><span class="n">09</span><h2>Aplicações</h2></div>
+      <div class="apps">
+        <div class="app"><div class="st"><div class="appicon"><span class="mark"><svg viewBox="0 0 188 204"><use href="#m"/></svg></span></div></div><div class="cap">Ícone de app</div></div>
+        <div class="app"><div class="st"><div class="avatar"><span class="mark"><svg viewBox="0 0 188 204"><use href="#m"/></svg></span></div></div><div class="cap">Avatar · Instagram / LinkedIn</div></div>
+        <div class="app"><div class="st"><div class="favs"><span class="fi f1"><span class="mark"><svg viewBox="0 0 188 204"><use href="#m"/></svg></span></span><span class="fi f2"><span class="mark"><svg viewBox="0 0 188 204"><use href="#m"/></svg></span></span><span class="fi f3"><span class="mark"><svg viewBox="0 0 188 204"><use href="#m"/></svg></span></span></div></div><div class="cap">Favicon · 16 / 32 / 64</div></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <span class="mark"><svg viewBox="0 0 188 204"><use href="#m"/></svg></span>
+      <p>LOCTOS · BRANDBOOK V1 · 2026 · A INFRAESTRUTURA DA LOCAÇÃO</p>
+    </div>
+  </footer>
+
+</body>
+</html>
